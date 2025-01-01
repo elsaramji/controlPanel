@@ -39,10 +39,10 @@
               "client_type": 3
             },
             {
-              "client_id": "23035564503-h9da8n75246jephmii8i4pafgp78c7fa.apps.googleusercontent.com",
+              "client_id": "23035564503-gnsm46o5vcbeee8irlltmulupagu1c2p.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.fruitsShop"
+                "bundle_id": "com.example.furitsControl"
               }
             }
           ]
@@ -51,7 +51,7 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:23035564503:android:91bf2a043d33386082bb92",
+        "mobilesdk_app_id": "1:23035564503:android:97c6cefc1336da9182bb92",
         "android_client_info": {
           "package_name": "com.example.furits_control"
         }
@@ -75,10 +75,10 @@
               "client_type": 3
             },
             {
-              "client_id": "23035564503-h9da8n75246jephmii8i4pafgp78c7fa.apps.googleusercontent.com",
+              "client_id": "23035564503-gnsm46o5vcbeee8irlltmulupagu1c2p.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.fruitsShop"
+                "bundle_id": "com.example.furitsControl"
               }
             }
           ]

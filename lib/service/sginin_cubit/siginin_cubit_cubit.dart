@@ -12,12 +12,14 @@ class SigninCubit extends Cubit<SigninState> {
   final FirebaseAuthService auth;
   Future<void> signInWithemailandpassword(
       {required String email, required String password}) async {
-    emit(SigninLoading());
-    final result = await auth.signInWithEmailAndPassword(email, password);
-    result.fold((l) {
-      emit(SigninError(l.message));
-    }, (r) {
-      emit(SigninSuccess(r));
-    });
+
+      emit(SigninLoading());
+      final result = await auth.signInWithEmailAndPassword(email, password);
+      result.fold((l) {
+        emit(SigninError(l.message));
+      }, (r) {
+        emit(SigninSuccess(r));
+      });
+    
   }
 }

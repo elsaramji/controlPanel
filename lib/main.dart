@@ -3,7 +3,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:furits_control/components/controls/views/controls_view.dart';
 import 'package:furits_control/core/injection/get_it.dart';
 import 'package:furits_control/service/firebase/auth.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -15,17 +14,19 @@ import 'firebase_options.dart';
 import 'generated/l10n.dart';
 
 void main() async {
-  setupGetIt();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+    name: 'DEFAULT',
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   await Supabase.initialize(
     url: 'https://mxtehujekjicckxdlxzi.supabase.co',
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14dGVodWpla2ppY2NreGRseHppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzUwMjk1MDIsImV4cCI6MjA1MDYwNTUwMn0.8yXA0Dlztz7yJ4ttz5reL0I0K6WMqmq56pKbgV25kkg',
   );
-
+  setupGetIt();
+  await S.load(const Locale('ar', 'EG'));
   runApp(StoreControle());
 }
 
@@ -53,11 +54,11 @@ class StoreControle extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      locale: const Locale('ar'),
+      locale: const Locale('ar', 'EG'),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: ongenerate,
-      initialRoute:
-          authService.isLoggedIn() ? ControlsView.route : SigninAsAdmin.route,
+      initialRoute: SigninAsAdmin.route,
+      home: SigninAsAdmin(),
     );
   }
 }

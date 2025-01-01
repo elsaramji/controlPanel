@@ -42,6 +42,7 @@ dependencies:
   flutter_svg: ^2.0.16
   flutter_svg_provider: ^1.0.7
   get_it: ^8.0.3
+  new_device_apps: ^1.0.0
   supabase_flutter: ^2.8.2
 dev_dependencies:
   flutter_lints: ^4.0.0

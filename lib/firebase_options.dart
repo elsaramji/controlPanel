@@ -52,7 +52,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDUFax45eXKI5Khug76xzXq_Htxa2udygs',
-    appId: '1:23035564503:android:91bf2a043d33386082bb92',
+    appId: '1:23035564503:android:97c6cefc1336da9182bb92',
     messagingSenderId: '23035564503',
     projectId: 'fruitshub-dcc6e',
     storageBucket: 'fruitshub-dcc6e.firebasestorage.app',
@@ -60,7 +60,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBi09rq3j5OZsU0MfrLne-DFNnEJHBDAmE',
-    appId: '1:23035564503:ios:f7ee536b5f98d37682bb92',
+    appId: '1:23035564503:ios:afa8acdc0dda8fb082bb92',
     messagingSenderId: '23035564503',
     projectId: 'fruitshub-dcc6e',
     storageBucket: 'fruitshub-dcc6e.firebasestorage.app',
@@ -71,7 +71,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyBi09rq3j5OZsU0MfrLne-DFNnEJHBDAmE',
-    appId: '1:23035564503:ios:f7ee536b5f98d37682bb92',
+    appId: '1:23035564503:ios:afa8acdc0dda8fb082bb92',
     messagingSenderId: '23035564503',
     projectId: 'fruitshub-dcc6e',
     storageBucket: 'fruitshub-dcc6e.firebasestorage.app',
@@ -82,11 +82,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyDJoupOaK51MwT6NRkNb_BlZdAmohmcBXk',
-    appId: '1:23035564503:web:63760e366ce7be7282bb92',
+    appId: '1:23035564503:web:329504a3b31dd8b282bb92',
     messagingSenderId: '23035564503',
     projectId: 'fruitshub-dcc6e',
     authDomain: 'fruitshub-dcc6e.firebaseapp.com',
     storageBucket: 'fruitshub-dcc6e.firebasestorage.app',
-    measurementId: 'G-857C0K7H03',
+    measurementId: 'G-ZJFJHD1TN8',
   );
 }

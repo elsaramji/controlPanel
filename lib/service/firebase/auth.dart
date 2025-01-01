@@ -9,6 +9,7 @@ import '../../core/models/user_entity.dart';
 
 class FirebaseAuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  late Usermodel usermodel;
 
   Future<Either<Failure, Usermodel>> signInWithEmailAndPassword(
       String email, String password) async {
@@ -40,5 +41,9 @@ class FirebaseAuthService {
 
   bool isLoggedIn() {
     return _firebaseAuth.currentUser != null;
+  }
+
+  Future forgetpassword(String email) async {
+    await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
 }

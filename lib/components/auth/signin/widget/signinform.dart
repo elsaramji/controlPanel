@@ -1,10 +1,12 @@
 // components/auth/signin/widget/signinform.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furits_control/components/auth/signin/widget/forgetpassword.dart';
 import 'package:furits_control/components/auth/signin/widget/sigin_button.dart';
 
 import '../../../../core/constant/ui_items.dart';
 import '../../../../core/custom/widget/custom_text_filed.dart';
+import '../../../../service/sginin_cubit/siginin_cubit_cubit.dart';
 
 class SigninForm extends StatelessWidget {
   SigninForm({
@@ -45,7 +47,12 @@ class SigninForm extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          SignInButton(formkey: formkey, email: email, password: password),
+          SignInButton(onPressed: () async {
+            formkey.currentState!.save();
+                            await BlocProvider.of<SigninCubit>(context)
+                                .signInWithemailandpassword(
+                                    email: email, password: password);
+          }),
         ],
       ),
     );
