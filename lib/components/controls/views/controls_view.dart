@@ -1,25 +1,14 @@
 // components/controls/views/controls_view.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:furits_control/components/controls/logic/controls_model.dart';
-import 'package:furits_control/constants/assets.dart';
-
+import 'package:furits_control/components/controls/constant/controls_list.dart';
 import '../../../core/custom/widget/custom_Appbar.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
 
 class ControlsView extends StatelessWidget {
   static const route = '/controls';
-  static List<ControlsModel> items = [
-    ControlsModel(title: "أدارة المنتجات", image: Assets.assetsImageBox),
-    ControlsModel(
-        title: "خدمة العملاء والطلبات", image: Assets.assetsImageChecked),
-    ControlsModel(title: "أدارة الشحن والتوصيل", image: Assets.assetsImageVan),
-  ];
-
   const ControlsView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +18,7 @@ class ControlsView extends StatelessWidget {
         ),
         body: ListView.builder(
             clipBehavior: Clip.none,
-            itemCount: items.length,
+            itemCount: Constants.items.length,
             itemBuilder: (context, index) {
               return Padding(
                   padding: const EdgeInsets.all(16),
@@ -37,7 +26,10 @@ class ControlsView extends StatelessWidget {
                     hoverColor: AppColors.green50,
                     splashColor: AppColors.green50,
                     highlightColor: AppColors.green50,
-                    onTap: () {},
+                    onTap: () {
+                      Constants.items[index]
+                          .onTap(context, Constants.items[index].routeName);
+                    },
                     child: Row(children: [
                       CircleAvatar(
                         radius: 33,
@@ -45,7 +37,7 @@ class ControlsView extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(6),
                           child: SvgPicture.asset(
-                            items[index].image,
+                            Constants.items[index].image,
                           ),
                         ),
                       ),
@@ -53,7 +45,7 @@ class ControlsView extends StatelessWidget {
                         width: 16,
                       ),
                       Text(
-                        items[index].title,
+                        Constants.items[index].title,
                         style: TextsStyle.bold16
                             .copyWith(color: AppColors.green1600),
                       ),
