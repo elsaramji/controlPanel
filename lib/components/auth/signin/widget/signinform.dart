@@ -4,8 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furits_control/components/auth/signin/widget/forgetpassword.dart';
 import 'package:furits_control/components/auth/signin/widget/sigin_button.dart';
 
-import '../../../../core/constant/ui_items.dart';
-import '../../../../core/custom/widget/custom_text_filed.dart';
+
+import '../../../../core/custom/inputsfileds/custom_text_filed.dart';
+import '../../../../core/custom/inputsfileds/logic/function.dart';
 import '../../../../service/sginin_cubit/siginin_cubit_cubit.dart';
 
 class SigninForm extends StatelessWidget {
@@ -37,7 +38,7 @@ class SigninForm extends StatelessWidget {
             keybordetepy: TextInputType.visiblePassword,
             hinttext: 'كلمة المرور',
             obscuretext: true,
-            suffixicons: Items.visiibleIcons,
+            suffixicons: VisibilIconsInFelides.visiibleIcons,
             onsaved: (value) => password = value!,
           ),
           const SizedBox(
@@ -49,9 +50,8 @@ class SigninForm extends StatelessWidget {
           ),
           SignInButton(onPressed: () async {
             formkey.currentState!.save();
-                            await BlocProvider.of<SigninCubit>(context)
-                                .signInWithemailandpassword(
-                                    email: email, password: password);
+            await BlocProvider.of<SigninCubit>(context)
+                .signInWithemailandpassword(email: email, password: password);
           }),
         ],
       ),

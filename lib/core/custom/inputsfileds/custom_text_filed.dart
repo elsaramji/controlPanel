@@ -1,6 +1,8 @@
-// core/custom/widget/custom_text_filed.dart
+// core/custom/inputsfileds/custom_text_filed.dart
 
 import 'package:flutter/material.dart';
+import 'package:furits_control/core/custom/inputsfileds/logic/function.dart';
+import 'package:furits_control/core/custom/inputsfileds/style/borders.dart';
 
 import '../../styles/color_style.dart';
 import '../../styles/font_style.dart';
@@ -37,10 +39,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
       keyboardType: widget.keybordetepy,
       obscureText: widget.obscuretext,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'هذا الحقل مطلوب';
-        }
-        return null;
+        return LogicFunction.vaildator(value);
       },
       decoration: InputDecoration(
         hintText: widget.hinttext,
@@ -66,22 +65,6 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
         errorBorder: TextfildeBorders.errorborder(),
         focusedErrorBorder: TextfildeBorders.errorborder(),
       ),
-    );
-  }
-}
-
-class TextfildeBorders {
-  static OutlineInputBorder normallyborder() {
-    return const OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(4)),
-      borderSide: BorderSide(color: Color(0xFFE6E9E9)),
-    );
-  }
-
-  static OutlineInputBorder errorborder() {
-    return const OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(4)),
-      borderSide: BorderSide(color: Colors.red),
     );
   }
 }

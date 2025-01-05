@@ -1,8 +1,8 @@
-// core/custom/widget/custom_button.dart
+// core/custom/buttons/custom_button.dart
 
 import 'package:flutter/material.dart';
 
-import '../../Style/custom_buttons_style.dart';
+import 'Style/custom_buttons_style.dart';
 import '../../styles/font_style.dart';
 
 

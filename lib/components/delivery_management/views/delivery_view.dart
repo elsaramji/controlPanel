@@ -7,6 +7,6 @@ class DeliveryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(body: Center(child: Text('Delivery View')));
   }
 }

@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furits_control/components/auth/forgetpassword/logic/open_other_apps.dart';
 import 'package:furits_control/components/auth/forgetpassword/logic/states_listener.dart';
+import 'package:furits_control/core/custom/appbars/custom_Appbar.dart';
 
-import '../../../../core/custom/widget/custom_Appbar.dart';
-import '../../../../core/custom/widget/custom_button.dart';
-import '../../../../core/custom/widget/custom_text_filed.dart';
+import '../../../../core/custom/buttons/custom_button.dart';
+import '../../../../core/custom/inputsfileds/custom_text_filed.dart';
 import '../../../../core/injection/get_it.dart';
 import '../../../../core/styles/color_style.dart';
 import '../../../../core/styles/font_style.dart';
@@ -23,7 +23,7 @@ class ForgetPasswordViwe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBar(
+      appBar: CustomAppBar.customAppBar(
           context: context,
           title: 'اعادة تعيين كلمة المرور',
           iconleading: const Icon(Icons.arrow_back_ios)),

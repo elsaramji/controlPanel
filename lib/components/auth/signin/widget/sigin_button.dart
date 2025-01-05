@@ -1,7 +1,7 @@
 // components/auth/signin/widget/sigin_button.dart
 import 'package:flutter/material.dart';
 
-import '../../../../core/custom/widget/custom_button.dart';
+import '../../../../core/custom/buttons/custom_button.dart';
 import '../../../../core/styles/color_style.dart';
 
 class SignInButton extends StatelessWidget {

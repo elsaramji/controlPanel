@@ -14,7 +14,7 @@ Route<dynamic> ongenerate(RouteSettings setting) {
       return MaterialPageRoute(builder: (context) => SigninAsAdmin());
     case ForgetPasswordViwe.routeName:
       return MaterialPageRoute(builder: (context) => ForgetPasswordViwe());
-    case ControlsView.route:
+    case ControlsView.routeName:
       return MaterialPageRoute(builder: (context) => const ControlsView());
     case ProductsView.routeName:
       return MaterialPageRoute(builder: (context) => const ProductsView());
