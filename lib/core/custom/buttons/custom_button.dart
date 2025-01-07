@@ -2,9 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'Style/custom_buttons_style.dart';
 import '../../styles/font_style.dart';
-
+import 'Style/custom_buttons_style.dart';
 
 class CustomButton extends StatelessWidget {
   final String titel;
@@ -22,12 +21,11 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: style ?? CustomButtonsStyle.primeryButtonstyle,
-      child: SizedBox(
-        height: 54,
-        width: double.infinity,
+    return SizedBox(
+      height: 54,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: style ?? CustomButtonsStyle.primeryButtonstyle,
         child: Center(
           child: Text(
             titel,

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/custom/buttons/custom_circle.dart';
+import '../../addItemsform/view/adding_form.dart';
 
 class ProductsView extends StatelessWidget {
   static const routeName = '/products';
@@ -11,7 +12,9 @@ class ProductsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: CustomCircleButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AddingForm.routeName);
+          },
         ),
         body: const Center(child: Text('Product Management')));
   }

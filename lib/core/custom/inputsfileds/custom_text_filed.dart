@@ -14,13 +14,16 @@ class CustomTextformField extends StatefulWidget {
 
   final TextInputType keybordetepy;
   final void Function(String?)? onsaved;
-
+  final int maxlines;
+  final TextAlign textalign;
   bool obscuretext;
   final List<Icon>? suffixicons;
   CustomTextformField({
     super.key,
     required this.keybordetepy,
     required this.hinttext,
+    this.textalign = TextAlign.start,
+    this.maxlines = 1,
     this.onsaved,
     this.obscuretext = false,
     this.suffixicons,
@@ -34,6 +37,8 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: widget.maxlines,
+      textAlign: widget.textalign,
       onSaved: widget.onsaved,
       style: TextsStyle.semibold13,
       keyboardType: widget.keybordetepy,

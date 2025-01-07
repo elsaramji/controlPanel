@@ -10,6 +10,10 @@ class Assets {
   /// assets/image/checked.svg
   static const String assetsImageChecked = "assets/image/checked.svg";
 
+  /// Assets for assetsImageGalleryExport
+  /// assets/image/gallery-export.svg
+  static const String assetsImageGalleryExport = "assets/image/gallery-export.svg";
+
   /// Assets for assetsImageHolder
   /// assets/image/holder.svg
   static const String assetsImageHolder = "assets/image/holder.svg";
