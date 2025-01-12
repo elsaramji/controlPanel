@@ -1,0 +1,64 @@
+// components/addItemsform/widgets/imageuploader/view/upload_image.dart
+
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:furits_control/components/addItemsform/widgets/imageuploader/widgets/image_selector.dart';
+import 'package:furits_control/core/custom/show_errors/custom_errors_massage.dart';
+import 'package:furits_control/service/supbace/storage_supbase.dart';
+
+import '../../../../../core/styles/color_style.dart';
+import '../../../../../service/blocks/cubits/upload/upload_image_cubit.dart';
+
+class UploadImage extends StatefulWidget {
+  bool isloaded = false;
+  bool imageisloading = false;
+  File? file;
+  final StorageSupbase hup;
+
+  UploadImage({
+    super.key,
+    required this.hup,
+  });
+
+  @override
+  State<UploadImage> createState() => _UploadImageState();
+}
+
+class _UploadImageState extends State<UploadImage> {
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => UploadImageCubit(),
+      child: Builder(builder: (context) {
+        return BlocConsumer<UploadImageCubit, UploadImageState>(
+          listener: (context, state) {
+            if (state is UploadImageSuccess) {
+              widget.imageisloading = false;
+              ErrorsMassage.errorsBar(context, 'تم رفع الصورة بنجاح');
+            } else if (state is UploadImageError) {
+              ErrorsMassage.errorsBar(context, state.message);
+            }
+            if (state is UploadImageLoading) {
+              widget.imageisloading = true;
+            }
+          },
+          builder: (context, state) {
+            return widget.imageisloading
+                ? const Center(
+                    child: SpinKitWave(
+                      color: AppColors.green1400,
+                    ),
+                  )
+                : UploadSelctor(
+                    file: widget.file,
+                    hup: widget.hup,
+                  );
+          },
+        );
+      }),
+    );
+  }
+}

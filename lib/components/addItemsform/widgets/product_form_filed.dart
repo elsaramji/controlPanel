@@ -11,7 +11,7 @@ class ProductForm extends StatelessWidget {
       quantity,
       price,
       description;
- ProductForm({super.key, required this.formkey,
+ const ProductForm({super.key, required this.formkey,
   required this.name,
   required this.dateofproduction,
   required this.dateofexpire,

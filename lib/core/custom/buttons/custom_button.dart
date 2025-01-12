@@ -8,13 +8,13 @@ import 'Style/custom_buttons_style.dart';
 class CustomButton extends StatelessWidget {
   final String titel;
   final Color titelcolor;
-  final VoidCallback? onPressed;
+  final void Function()? onPressed;
   final ButtonStyle? style;
 
   const CustomButton({
     super.key,
     required this.titel,
-    required this.onPressed,
+    this.onPressed,
     this.style,
     required this.titelcolor,
   });

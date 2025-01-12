@@ -1,12 +1,15 @@
 // components/addItemsform/view/adding_form.dart
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:furits_control/components/addItemsform/logic/function.dart';
 import 'package:furits_control/components/addItemsform/widgets/saving_button.dart';
+import 'package:furits_control/core/injection/get_it.dart';
 
 import '../../../core/custom/appbars/custom_Appbar.dart';
+import '../../../service/supbace/storage_supbase.dart';
 import '../widgets/product_form_filed.dart';
-import '../widgets/upload_image.dart';
+import '../widgets/imageuploader/view/upload_image.dart';
 
 class AddingForm extends StatelessWidget {
   static const routeName = '/AddingForm';
@@ -16,7 +19,9 @@ class AddingForm extends StatelessWidget {
       dateofexpire,
       quantity,
       price,
-      description;
+      description,
+      imageurl;
+
   AddingForm({super.key});
 
   @override
@@ -40,6 +45,7 @@ class AddingForm extends StatelessWidget {
                       formkey: formKey,
                       name: (value) {
                         name = value;
+                        log(name!);
                       },
                       dateofproduction: (value) {
                         dateofproduction = value;
@@ -61,14 +67,10 @@ class AddingForm extends StatelessWidget {
                       size: Size.fromHeight(36),
                     ),
                     UploadImage(
-                      onPressed: () {
-                        AddItemsFunction.uploadimage().then((value) {
-                          if (value != null) {}
-                        });
-                      },
+                      hup: getIt<StorageSupbase>(),
                     ),
                     const SizedOverflowBox(
-                      size: Size.fromHeight(72),
+                      size: Size.fromHeight(108),
                     ),
                     SavingButtons(
                       onpressedCancel: () {},
