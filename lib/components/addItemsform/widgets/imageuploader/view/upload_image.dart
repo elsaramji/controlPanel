@@ -5,12 +5,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:furits_control/components/addItemsform/widgets/imageuploader/widgets/image_selector.dart';
 import 'package:furits_control/core/custom/show_errors/custom_errors_massage.dart';
 import 'package:furits_control/service/supbace/storage_supbase.dart';
 
 import '../../../../../core/styles/color_style.dart';
 import '../../../../../service/blocks/cubits/upload/upload_image_cubit.dart';
+import '../../../logic/function.dart';
+import '../widgets/button_upload.dart';
+import '../widgets/image_box.dart';
 
 class UploadImage extends StatefulWidget {
   bool isloaded = false;
@@ -40,6 +42,7 @@ class _UploadImageState extends State<UploadImage> {
               ErrorsMassage.errorsBar(context, 'تم رفع الصورة بنجاح');
             } else if (state is UploadImageError) {
               ErrorsMassage.errorsBar(context, state.message);
+              widget.imageisloading = false;
             }
             if (state is UploadImageLoading) {
               widget.imageisloading = true;
@@ -52,10 +55,26 @@ class _UploadImageState extends State<UploadImage> {
                       color: AppColors.green1400,
                     ),
                   )
-                : UploadSelctor(
-                    file: widget.file,
-                    hup: widget.hup,
-                  );
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                        GestureDetector(
+                            onTap: () async {
+                              PickImageFunction.pickimagelocal().then((value) {
+                                if (value != null) {
+                                  setState(() {
+                                    widget.isloaded = true;
+                                    widget.file = File(value.path);
+                                  });
+                                }
+                              });
+                            },
+                            child: ImageBox(
+                              isloaded: widget.isloaded,
+                              file: widget.file,
+                            )),
+                        ButtonUpload(widget: widget),
+                      ]);
           },
         );
       }),

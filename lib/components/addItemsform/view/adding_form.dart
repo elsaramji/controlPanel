@@ -5,22 +5,22 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:furits_control/components/addItemsform/widgets/saving_button.dart';
 import 'package:furits_control/core/injection/get_it.dart';
+import 'package:furits_control/core/models/product.dart';
 
 import '../../../core/custom/appbars/custom_Appbar.dart';
 import '../../../service/supbace/storage_supbase.dart';
-import '../widgets/product_form_filed.dart';
 import '../widgets/imageuploader/view/upload_image.dart';
+import '../widgets/product_form_filed.dart';
 
 class AddingForm extends StatelessWidget {
   static const routeName = '/AddingForm';
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  late String? name,
+  late String name,
       dateofproduction,
       dateofexpire,
       quantity,
       price,
-      description,
-      imageurl;
+      description;
 
   AddingForm({super.key});
 
@@ -44,23 +44,23 @@ class AddingForm extends StatelessWidget {
                     ProductForm(
                       formkey: formKey,
                       name: (value) {
-                        name = value;
-                        log(name!);
+                        name = value!;
+                        //log(name);
                       },
                       dateofproduction: (value) {
-                        dateofproduction = value;
+                        dateofproduction = value!;
                       },
                       dateofexpire: (value) {
-                        dateofexpire = value;
+                        dateofexpire = value!;
                       },
                       quantity: (value) {
-                        quantity = value;
+                        quantity = value!;
                       },
                       price: (value) {
-                        price = value;
+                        price = value!;
                       },
                       description: (value) {
-                        description = value;
+                        description = value!;
                       },
                     ),
                     const SizedOverflowBox(
@@ -77,6 +77,15 @@ class AddingForm extends StatelessWidget {
                       onPressedSaver: () {
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
+                          log(Product(
+                            name: name,
+                            dateofproduction: dateofproduction,
+                            dateofexpire: dateofexpire,
+                            quantity: quantity,
+                            price: price,
+                            description: description,
+                            imageurl: getIt<StorageSupbase>().imageurl,
+                          ).image);
                         }
                       },
                     ),

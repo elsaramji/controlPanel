@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furits_control/components/addItemsform/widgets/imageuploader/widgets/image_selector.dart';
+import 'package:furits_control/components/addItemsform/widgets/imageuploader/view/upload_image.dart';
 
 import '../../../../../core/custom/buttons/custom_button.dart';
 import '../../../../../core/custom/show_errors/custom_errors_massage.dart';
@@ -16,7 +16,7 @@ class ButtonUpload extends StatelessWidget {
     required this.widget,
   });
 
-  final UploadSelctor widget;
+  final UploadImage widget;
 
   @override
   Widget build(BuildContext context) {
