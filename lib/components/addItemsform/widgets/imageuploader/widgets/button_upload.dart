@@ -1,6 +1,4 @@
 // components/addItemsform/widgets/imageuploader/widgets/button_upload.dart
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:furits_control/components/addItemsform/widgets/imageuploader/view/upload_image.dart';
@@ -8,9 +6,9 @@ import 'package:furits_control/components/addItemsform/widgets/imageuploader/vie
 import '../../../../../core/custom/buttons/custom_button.dart';
 import '../../../../../core/custom/show_errors/custom_errors_massage.dart';
 import '../../../../../core/styles/color_style.dart';
-import '../../../../../service/blocks/cubits/upload/upload_image_cubit.dart';
+import '../../../../../service/blocks/cubits/upload_image/upload_image_cubit.dart';
 
-class ButtonUpload extends StatelessWidget {
+class ButtonUpload extends StatefulWidget {
   const ButtonUpload({
     super.key,
     required this.widget,
@@ -18,6 +16,11 @@ class ButtonUpload extends StatelessWidget {
 
   final UploadImage widget;
 
+  @override
+  State<ButtonUpload> createState() => _ButtonUploadState();
+}
+
+class _ButtonUploadState extends State<ButtonUpload> {
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -28,12 +31,14 @@ class ButtonUpload extends StatelessWidget {
       CustomButton(
         titel: "رفع الصورة",
         onPressed: () {
-          if (widget.file != null) {
+          if (widget.widget.file != null) {
             BlocProvider.of<UploadImageCubit>(context).uploadimage(
-              supbase: widget.hup,
-              file: widget.file!,
-              productid: Random().nextInt(100).toString(),
+              supbase: widget.widget.hup,
+              file: widget.widget.file!,
             );
+            setState(() {
+              widget.widget.isuploaded = true;
+            });
           } else {
             ErrorsMassage.errorsBar(context, 'يرجى اختيار صورة المنتج');
           }

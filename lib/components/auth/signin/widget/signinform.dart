@@ -7,7 +7,7 @@ import 'package:furits_control/components/auth/signin/widget/sigin_button.dart';
 
 import '../../../../core/custom/inputsfileds/custom_text_filed.dart';
 import '../../../../core/custom/inputsfileds/logic/function.dart';
-import '../../../../service/sginin_cubit/siginin_cubit_cubit.dart';
+import '../../../../service/blocks/cubits/sginin_cubit/siginin_cubit_cubit.dart';
 
 class SigninForm extends StatelessWidget {
   SigninForm({

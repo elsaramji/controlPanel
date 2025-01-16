@@ -7,32 +7,31 @@ import 'package:furits_control/core/errors/failure.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class StorageSupbase {
-  late String imageurl;
+  String imageurl = "";
   // Add your Supabase storage methods here
   Future<Either<Failure, String>> uploadImage_supbase(
-      {required File file, required String productid}) async {
+      {required File file}) async {
     // await Supabase.instance.client.storage.createBucket('products');
     StorageFileApi storage = Supabase.instance.client.storage.from('products');
 
     try {
       await storage.upload(
-        "products/$productid",
+        "products/${file.path}",
         file,
       );
-      log(storage.getPublicUrl(file.path));
-      imageurl = storage.getPublicUrl(file.path);
-      return right(storage.getPublicUrl(file.path));
+      imageurl = storage.getPublicUrl("products/${file.path}");
+      return right(imageurl);
     } catch (e) {
       log(e.toString());
       return left(Failure(e.toString()));
     }
   }
 
-  get imageUrl {
+  String? get imageUrlpp {
     if (imageurl.isNotEmpty) {
       return imageurl;
     } else {
-      return "";
+      return null;
     }
   }
 }

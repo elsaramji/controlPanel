@@ -16,5 +16,28 @@ class Product {
       required this.price,
       required this.description,
       required this.imageurl});
-get image => imageurl;
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+        name: json['name'],
+        dateofproduction: json['dateofproduction'],
+        dateofexpire: json['dateofexpire'],
+        quantity: json['quantity'],
+        price: json['price'],
+        description: json['description'],
+        imageurl: json['imageurl']);
+  }
+  
+  
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'dateofproduction': dateofproduction,
+      'dateofexpire': dateofexpire,
+      'quantity': quantity,
+      'price': price,
+      'description': description,
+      'imageurl': imageurl,
+    };
+  }
 }

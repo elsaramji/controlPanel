@@ -1,8 +1,8 @@
-// service/sginin_cubit/siginin_cubit_cubit.dart
+// service/blocks/cubits/sginin_cubit/siginin_cubit_cubit.dart
 import 'package:bloc/bloc.dart';
 
-import '../../core/models/user_entity.dart';
-import '../firebase/auth.dart';
+import '../../../../core/models/user_entity.dart';
+import '../../../firebase/auth.dart';
 
 part 'siginin_cubit_state.dart';
 

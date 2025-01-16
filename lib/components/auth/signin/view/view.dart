@@ -8,7 +8,7 @@ import 'package:furits_control/core/custom/appbars/custom_Appbar.dart';
 
 import '../../../../core/injection/get_it.dart';
 import '../../../../service/firebase/auth.dart';
-import '../../../../service/sginin_cubit/siginin_cubit_cubit.dart';
+import '../../../../service/blocks/cubits/sginin_cubit/siginin_cubit_cubit.dart';
 import '../widget/admin_rules.dart';
 
 class SigninAsAdmin extends StatelessWidget {

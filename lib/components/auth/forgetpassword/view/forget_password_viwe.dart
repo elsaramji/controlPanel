@@ -12,7 +12,7 @@ import '../../../../core/injection/get_it.dart';
 import '../../../../core/styles/color_style.dart';
 import '../../../../core/styles/font_style.dart';
 import '../../../../service/firebase/auth.dart';
-import '../../../../service/forgetpassword/forgetpassword_cubit.dart';
+import '../../../../service/blocks/cubits/forgetpassword_cubit/forgetpassword_cubit.dart';
 
 class ForgetPasswordViwe extends StatelessWidget {
   static const routeName = '/forgetpassword';

@@ -1,8 +1,8 @@
-// service/forgetpassword/forgetpassword_cubit.dart
+// service/blocks/cubits/forgetpassword_cubit/forgetpassword_cubit.dart
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import '../firebase/auth.dart';
+import '../../../firebase/auth.dart';
 
 part 'forgetpassword_state.dart';
 
