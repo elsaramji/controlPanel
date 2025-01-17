@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:furits_control/core/injection/get_it.dart';
 import 'package:furits_control/service/firebase/auth.dart';
-import 'package:intl/intl.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'components/auth/signin/view/view.dart';
@@ -26,9 +25,9 @@ void main() async {
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14dGVodWpla2ppY2NreGRseHppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzUwMjk1MDIsImV4cCI6MjA1MDYwNTUwMn0.8yXA0Dlztz7yJ4ttz5reL0I0K6WMqmq56pKbgV25kkg',
   );
-  
+
   setupGetIt();
-  Intl.defaultLocale = 'ar';
+
   runApp(StoreControle());
 }
 
@@ -56,7 +55,7 @@ class StoreControle extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      locale: Intl.defaultLocale != null ? Locale(Intl.defaultLocale!) : null,
+      locale: S.delegate.supportedLocales[1],
       debugShowCheckedModeBanner: false,
       onGenerateRoute: ongenerate,
       initialRoute: SigninAsAdmin.route,
