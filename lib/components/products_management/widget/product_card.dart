@@ -1,5 +1,7 @@
 // components/products_management/widget/product_card.dart
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../../../core/custom/buttons/Style/custom_buttons_style.dart';
 import '../../../core/models/product.dart';
@@ -27,8 +29,14 @@ class ProductCard extends StatelessWidget {
                 children: [
                   AspectRatio(
                       aspectRatio: 131 / 99,
-                      child:
-                          Image.network(product.imageurl, fit: BoxFit.contain)),
+                      child: CachedNetworkImage(
+                          imageUrl: product.imageurl,
+                          progressIndicatorBuilder:
+                              (context, url, downloadProgress) => const Center(
+                                    child: SpinKitFadingCube(
+                                      color: AppColors.orange500,
+                                    ),
+                                  ))),
                   ListTile(
                     contentPadding: EdgeInsets.zero,
                     title: Text(

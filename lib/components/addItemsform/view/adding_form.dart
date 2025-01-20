@@ -31,6 +31,7 @@ class AddingForm extends StatefulWidget {
       description;
 
   StorageSupbase hup = getIt<StorageSupbase>();
+  FirebaseCollaction collaction = getIt<FirebaseCollaction>();
   AddingForm({super.key});
 
   @override
@@ -119,9 +120,10 @@ class _AddingFormState extends State<AddingForm> {
                                       widget.formKey.currentState!.save();
                                       BlocProvider.of<AddProductCubit>(context)
                                           .addproduct(
-                                              collaction:
-                                                  getIt<FirebaseCollaction>(),
+                                              collaction: widget.collaction,
                                               product: Product(
+                                                  id: widget.collaction
+                                                      .getProductId(),
                                                   name: widget.name,
                                                   dateofproduction:
                                                       widget.dateofproduction,

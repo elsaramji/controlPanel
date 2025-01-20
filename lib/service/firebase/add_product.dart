@@ -13,9 +13,13 @@ class FirebaseCollaction {
     try {
       Map<String, dynamic> productmap = product.toMap();
       await products.add(productmap);
+      getProductId();
       return right(true);
     } catch (e) {
       return left(Failure(e.toString()));
     }
+  }
+  getProductId()async{
+    return await products.doc().id;
   }
 }
