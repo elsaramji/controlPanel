@@ -8,18 +8,36 @@ import 'package:furits_control/core/models/product.dart';
 class FirebaseCollaction {
   CollectionReference products =
       FirebaseFirestore.instance.collection('products');
+  String? productCode;
 
   Future<Either<Failure, bool>> addProduct({required Product product}) async {
     try {
       Map<String, dynamic> productmap = product.toMap();
-      await products.add(productmap);
-      getProductId();
+      await products.doc(product.id).set(productmap);
+
       return right(true);
     } catch (e) {
       return left(Failure(e.toString()));
     }
   }
-  getProductId()async{
-    return await products.doc().id;
+
+  Future<Either<Failure, bool>> updateProduct(
+      {required Product product, required String id}) async {
+    try {
+      Map<String, dynamic> productmap = product.toMap();
+      await products.doc(id).update(productmap);
+      return right(true);
+    } catch (e) {
+      return left(Failure(e.toString()));
+    }
+  }
+
+  Future<Either<Failure, bool>> deleteProduct({required String id}) async {
+    try {
+      await products.doc(id).delete();
+      return right(true);
+    } catch (e) {
+      return left(Failure(e.toString()));
+    }
   }
 }

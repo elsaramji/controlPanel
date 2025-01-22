@@ -1,5 +1,7 @@
 // components/addItemsform/view/adding_form.dart
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -122,8 +124,7 @@ class _AddingFormState extends State<AddingForm> {
                                           .addproduct(
                                               collaction: widget.collaction,
                                               product: Product(
-                                                  id: widget.collaction
-                                                      .getProductId(),
+                                                  id: generateProductCode(),
                                                   name: widget.name,
                                                   dateofproduction:
                                                       widget.dateofproduction,
@@ -148,4 +149,18 @@ class _AddingFormState extends State<AddingForm> {
       }),
     );
   }
+}
+
+String generateProductCode() {
+  // Get the current date
+  final DateTime now = DateTime.now();
+  final String datePart =
+      "${now.year}${now.month.toString().padLeft(2, '0')}${now.day.toString().padLeft(2, '0')}";
+
+  // Generate a random 4-digit number
+  final Random random = Random();
+  final String uniquePart = random.nextInt(10000).toString().padLeft(4, '0');
+
+  // Combine parts to create the product code
+  return "$datePart-$uniquePart";
 }

@@ -2,6 +2,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:furits_control/core/injection/get_it.dart';
+import 'package:furits_control/service/firebase/add_product.dart';
 
 import '../../../core/custom/buttons/Style/custom_buttons_style.dart';
 import '../../../core/models/product.dart';
@@ -10,6 +12,7 @@ import '../../../core/styles/font_style.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
+  static FirebaseCollaction collaction = getIt.get<FirebaseCollaction>();
 
   const ProductCard({
     super.key,
@@ -28,7 +31,7 @@ class ProductCard extends StatelessWidget {
               child: Column(
                 children: [
                   AspectRatio(
-                      aspectRatio: 131 / 99,
+                      aspectRatio: 172 / 99,
                       child: CachedNetworkImage(
                           imageUrl: product.imageurl,
                           progressIndicatorBuilder:
@@ -61,7 +64,7 @@ class ProductCard extends StatelessWidget {
                     trailing: IconButton(
                       onPressed: () {},
                       icon: const Icon(
-                        Icons.add,
+                        Icons.edit,
                         color: AppColors.white,
                       ),
                       style: CustomButtonsStyle.primeryButtonstyle.copyWith(
@@ -72,12 +75,45 @@ class ProductCard extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 0,
-              right: 0,
-              child: GestureDetector(
-                child: const Icon(Icons.favorite_border_outlined),
-              ),
-            ),
+                top: 0,
+                right: 0,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: const Icon(
+                    Icons.sell_rounded,
+                    color: AppColors.grayscale950,
+                  ),
+                )),
+            Positioned(
+                top: 0,
+                left: 0,
+                child: GestureDetector(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                                title: const Text('هل تريد حذف المنتج ؟'),
+                                actions: <Widget>[
+                                  TextButton(
+                                    child: const Text('نعم'),
+                                    onPressed: () {
+                                      collaction.deleteProduct(id: product.id);
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  TextButton(
+                                    child: const Text('لا'),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                ]));
+                  },
+                  child: const Icon(
+                    Icons.delete_rounded,
+                    color: AppColors.grayscale950,
+                  ),
+                )),
           ])),
     );
   }
