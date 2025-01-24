@@ -1,7 +1,7 @@
 // core/helper/on_generate.dart
 
 import 'package:flutter/material.dart';
-import 'package:furits_control/components/addItemsform/view/adding_form.dart';
+import 'package:furits_control/components/addItemsform/view/add_product_form.dart';
 import 'package:furits_control/components/auth/forgetpassword/view/forget_password_viwe.dart';
 import 'package:furits_control/components/controls/views/controls_view.dart';
 import 'package:furits_control/components/delivery_management/views/delivery_view.dart';
@@ -24,8 +24,8 @@ Route<dynamic> ongenerate(RouteSettings setting) {
       return MaterialPageRoute(builder: (context) => const DeliveryView());
     case ServiceView.routeName:
       return MaterialPageRoute(builder: (context) => const ServiceView());
-    case AddingForm.routeName:
-      return MaterialPageRoute(builder: (context) => AddingForm());
+    case AddProductForm.routeName:
+      return MaterialPageRoute(builder: (context) => AddProductForm());
     default:
       return MaterialPageRoute(builder: (context) => SigninAsAdmin());
   }

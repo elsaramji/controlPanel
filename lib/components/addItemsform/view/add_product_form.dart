@@ -9,7 +9,7 @@ import 'package:furits_control/components/addItemsform/widgets/saving_button.dar
 import 'package:furits_control/components/products_management/views/products_view.dart';
 import 'package:furits_control/core/injection/get_it.dart';
 import 'package:furits_control/service/blocks/cubits/add_product/add_product_cubit.dart';
-import 'package:furits_control/service/firebase/add_product.dart';
+import 'package:furits_control/service/firebase/firebaseDataService.dart';
 
 import '../../../core/custom/appbars/custom_Appbar.dart';
 import '../../../core/custom/show_errors/custom_errors_massage.dart';
@@ -19,7 +19,7 @@ import '../../../service/supbace/storage_supbase.dart';
 import '../widgets/imageuploader/view/upload_image.dart';
 import '../widgets/product_form_filed.dart';
 
-class AddingForm extends StatefulWidget {
+class AddProductForm extends StatefulWidget {
   static const routeName = '/AddingForm';
   bool isloading = false;
 
@@ -33,14 +33,14 @@ class AddingForm extends StatefulWidget {
       description;
 
   StorageSupbase hup = getIt<StorageSupbase>();
-  FirebaseCollaction collaction = getIt<FirebaseCollaction>();
-  AddingForm({super.key});
+  FirebaseDataService collaction = getIt<FirebaseDataService>();
+  AddProductForm({super.key});
 
   @override
-  State<AddingForm> createState() => _AddingFormState();
+  State<AddProductForm> createState() => _AddProductFormState();
 }
 
-class _AddingFormState extends State<AddingForm> {
+class _AddProductFormState extends State<AddProductForm> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

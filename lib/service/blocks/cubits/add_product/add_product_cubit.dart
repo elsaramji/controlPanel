@@ -2,7 +2,7 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:furits_control/service/firebase/add_product.dart';
+import 'package:furits_control/service/firebase/firebaseDataService.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../core/models/product.dart';
@@ -12,7 +12,7 @@ part 'add_product_state.dart';
 class AddProductCubit extends Cubit<AddProductState> {
   AddProductCubit() : super(AddProductInitial());
   void addproduct(
-      {required FirebaseCollaction collaction,
+      {required FirebaseDataService collaction,
       required Product product}) async {
     emit(AddProductLoading());
     final result = await collaction.addProduct(product: product);

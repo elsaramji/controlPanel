@@ -1,14 +1,13 @@
-// service/firebase/add_product.dart
+// service/firebase/firebaseDataService.dart
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:furits_control/core/errors/failure.dart';
 import 'package:furits_control/core/models/product.dart';
 
-class FirebaseCollaction {
+class FirebaseDataService {
   CollectionReference products =
       FirebaseFirestore.instance.collection('products');
-  String? productCode;
 
   Future<Either<Failure, bool>> addProduct({required Product product}) async {
     try {
@@ -39,5 +38,9 @@ class FirebaseCollaction {
     } catch (e) {
       return left(Failure(e.toString()));
     }
+  }
+
+  Stream<QuerySnapshot> getProduct() {
+    return products.snapshots();
   }
 }

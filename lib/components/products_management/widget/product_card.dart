@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:furits_control/core/injection/get_it.dart';
-import 'package:furits_control/service/firebase/add_product.dart';
+import 'package:furits_control/service/firebase/firebaseDataService.dart';
 
 import '../../../core/custom/buttons/Style/custom_buttons_style.dart';
 import '../../../core/models/product.dart';
@@ -12,7 +12,7 @@ import '../../../core/styles/font_style.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
-  static FirebaseCollaction collaction = getIt.get<FirebaseCollaction>();
+  static FirebaseDataService collaction = getIt.get<FirebaseDataService>();
 
   const ProductCard({
     super.key,
@@ -25,50 +25,58 @@ class ProductCard extends StatelessWidget {
       aspectRatio: 8 / 16,
       child: Container(
           padding: const EdgeInsets.all(8),
-          color: AppColors.grayscale200.withOpacity(0.3),
+          color: AppColors.grayscale50.withOpacity(0.3),
           child: Stack(children: <Widget>[
             Positioned.fill(
               child: Column(
                 children: [
-                  AspectRatio(
-                      aspectRatio: 172 / 99,
-                      child: CachedNetworkImage(
-                          imageUrl: product.imageurl,
-                          progressIndicatorBuilder:
-                              (context, url, downloadProgress) => const Center(
-                                    child: SpinKitFadingCube(
-                                      color: AppColors.orange500,
-                                    ),
-                                  ))),
-                  ListTile(
-                    contentPadding: EdgeInsets.zero,
-                    title: Text(
-                      product.name,
-                      style: TextsStyle.semibold19
-                          .copyWith(color: AppColors.grayscale950),
-                    ),
-                    subtitle: Text.rich(
-                      TextSpan(children: [
-                        TextSpan(
-                          text: "${product.price} جنية",
-                          style: TextsStyle.bold16
-                              .copyWith(color: AppColors.orange500),
-                        ),
-                        TextSpan(
-                          text: "كيلو",
-                          style: TextsStyle.semibold16
-                              .copyWith(color: AppColors.orange300),
-                        ),
-                      ]),
-                    ),
-                    trailing: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.edit,
-                        color: AppColors.white,
+                  Expanded(
+                    flex: 2,
+                    child: CachedNetworkImage(
+                        filterQuality: FilterQuality.high,
+                        fit: BoxFit.fill,
+                        imageUrl: product.imageurl,
+                        progressIndicatorBuilder:
+                            (context, url, downloadProgress) => const Center(
+                                  child: SpinKitFadingCube(
+                                    color: AppColors.green1600,
+                                  ),
+                                )),
+                  ),
+                  const Expanded(flex: 1, child: SizedBox()),
+                  Expanded(
+                    flex: 2,
+                    child: ListTile(
+                      contentPadding: EdgeInsets.zero,
+                      title: Text(
+                        product.name,
+                        style: TextsStyle.semibold19
+                            .copyWith(color: AppColors.grayscale950),
                       ),
-                      style: CustomButtonsStyle.primeryButtonstyle.copyWith(
-                          shape: const WidgetStatePropertyAll(CircleBorder())),
+                      subtitle: Text.rich(
+                        TextSpan(children: [
+                          TextSpan(
+                            text: "${product.price} جنية",
+                            style: TextsStyle.bold16
+                                .copyWith(color: AppColors.orange500),
+                          ),
+                          TextSpan(
+                            text: "كيلو",
+                            style: TextsStyle.semibold16
+                                .copyWith(color: AppColors.orange300),
+                          ),
+                        ]),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.edit,
+                          color: AppColors.white,
+                        ),
+                        style: CustomButtonsStyle.primeryButtonstyle.copyWith(
+                            shape:
+                                const WidgetStatePropertyAll(CircleBorder())),
+                      ),
                     ),
                   ),
                 ],
