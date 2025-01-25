@@ -1,6 +1,6 @@
 // core/models/product.dart
 class Product {
-  final String name,
+  String name,
       dateofproduction,
       dateofexpire,
       quantity,

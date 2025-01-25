@@ -1,4 +1,4 @@
-// components/addItemsform/widgets/imageuploader/view/upload_image.dart
+// components/products_management/components/add_product/widgets/imageuploader/view/upload_image.dart
 
 import 'dart:io';
 
@@ -8,8 +8,9 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:furits_control/core/custom/show_errors/custom_errors_massage.dart';
 import 'package:furits_control/service/supbace/storage_supbase.dart';
 
-import '../../../../../core/styles/color_style.dart';
-import '../../../../../service/blocks/cubits/upload_image/upload_image_cubit.dart';
+
+import '../../../../../../../core/styles/color_style.dart';
+import '../../../../../../../service/blocks/cubits/upload_image/upload_image_cubit.dart';
 import '../../../logic/function.dart';
 import '../widgets/button_upload.dart';
 import '../widgets/image_box.dart';

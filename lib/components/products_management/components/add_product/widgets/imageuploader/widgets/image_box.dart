@@ -1,11 +1,11 @@
-// components/addItemsform/widgets/imageuploader/widgets/image_box.dart
+// components/products_management/components/add_product/widgets/imageuploader/widgets/image_box.dart
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../constants/assets.dart';
-import '../../../../../core/styles/color_style.dart';
+import '../../../../../../../constants/assets.dart';
+import '../../../../../../../core/styles/color_style.dart';
 
 class ImageBox extends StatefulWidget {
   bool isloaded = false;

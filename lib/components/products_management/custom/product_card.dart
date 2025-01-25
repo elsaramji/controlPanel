@@ -9,6 +9,7 @@ import '../../../core/custom/buttons/Style/custom_buttons_style.dart';
 import '../../../core/models/product.dart';
 import '../../../core/styles/color_style.dart';
 import '../../../core/styles/font_style.dart';
+import '../components/products_editor/view/products_editor.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -68,7 +69,10 @@ class ProductCard extends StatelessWidget {
                         ]),
                       ),
                       trailing: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, ProductsEditor.routeName,
+                              arguments: product);
+                        },
                         icon: const Icon(
                           Icons.edit,
                           color: AppColors.white,

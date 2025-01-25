@@ -1,12 +1,13 @@
-// components/addItemsform/widgets/imageuploader/widgets/button_upload.dart
+// components/products_management/components/add_product/widgets/imageuploader/widgets/button_upload.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:furits_control/components/addItemsform/widgets/imageuploader/view/upload_image.dart';
 
-import '../../../../../core/custom/buttons/custom_button.dart';
-import '../../../../../core/custom/show_errors/custom_errors_massage.dart';
-import '../../../../../core/styles/color_style.dart';
-import '../../../../../service/blocks/cubits/upload_image/upload_image_cubit.dart';
+
+import '../../../../../../../core/custom/buttons/custom_button.dart';
+import '../../../../../../../core/custom/show_errors/custom_errors_massage.dart';
+import '../../../../../../../core/styles/color_style.dart';
+import '../../../../../../../service/blocks/cubits/upload_image/upload_image_cubit.dart';
+import '../view/upload_image.dart';
 
 class ButtonUpload extends StatefulWidget {
   const ButtonUpload({

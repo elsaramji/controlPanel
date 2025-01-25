@@ -1,6 +1,7 @@
 // core/custom/inputsfileds/flexible_text_filed.dart
 import 'package:flutter/material.dart';
 import 'package:furits_control/core/custom/inputsfileds/custom_text_filed.dart';
+import 'package:furits_control/generated/l10n.dart';
 
 class FlexibleTextformField extends StatelessWidget {
   final TextInputType keybordetepy;
@@ -10,8 +11,9 @@ class FlexibleTextformField extends StatelessWidget {
   bool obscuretext;
   final List<Icon>? suffixicons;
   final String hinttext;
+  String? initialValue;
 
- FlexibleTextformField(
+  FlexibleTextformField(
       {super.key,
       required this.keybordetepy,
       required this.hinttext,
@@ -19,6 +21,7 @@ class FlexibleTextformField extends StatelessWidget {
       this.maxlines = 1,
       this.textalign = TextAlign.start,
       this.obscuretext = false,
+      this.initialValue,
       this.suffixicons});
   @override
   Widget build(BuildContext context) {
@@ -26,9 +29,11 @@ class FlexibleTextformField extends StatelessWidget {
         child: CustomTextformField(
             onsaved: onsaved,
             maxlines: maxlines,
+            initialValue: initialValue,
             textalign: textalign,
             obscuretext: obscuretext,
             suffixicons: suffixicons,
-            keybordetepy: keybordetepy, hinttext: hinttext));
+            keybordetepy: keybordetepy,
+            hinttext: hinttext));
   }
 }

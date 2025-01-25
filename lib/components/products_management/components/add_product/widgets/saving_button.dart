@@ -1,9 +1,10 @@
-// components/addItemsform/widgets/saving_button.dart
+// components/products_management/components/add_product/widgets/saving_button.dart
 import 'package:flutter/material.dart';
 
-import '../../../core/custom/buttons/Style/custom_buttons_style.dart';
-import '../../../core/custom/buttons/custom_button.dart';
-import '../../../core/styles/color_style.dart';
+import '../../../../../core/custom/buttons/Style/custom_buttons_style.dart';
+import '../../../../../core/custom/buttons/custom_button.dart';
+import '../../../../../core/styles/color_style.dart';
+
 
 class SavingButtons extends StatelessWidget {
   final Function()? onPressedSaver;

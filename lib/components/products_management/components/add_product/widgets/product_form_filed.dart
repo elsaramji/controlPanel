@@ -1,7 +1,8 @@
-// components/addItemsform/widgets/product_form_filed.dart
+// components/products_management/components/add_product/widgets/product_form_filed.dart
 import 'package:flutter/material.dart';
 
-import '../../../core/custom/inputsfileds/flexible_text_filed.dart';
+import '../../../../../core/custom/inputsfileds/flexible_text_filed.dart';
+import '../view/add_product_form.dart';
 
 class ProductForm extends StatelessWidget {
   final GlobalKey<FormState> formkey; //formkey;
@@ -11,13 +12,15 @@ class ProductForm extends StatelessWidget {
       quantity,
       price,
       description;
- const ProductForm({super.key, required this.formkey,
-  required this.name,
-  required this.dateofproduction,
-  required this.dateofexpire,
-  required this.quantity,
-  required this.price,
-  required this.description});
+  const ProductForm(
+      {super.key,
+      required this.formkey,
+      required this.name,
+      required this.dateofproduction,
+      required this.dateofexpire,
+      required this.quantity,
+      required this.price,
+      required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -73,5 +76,40 @@ class ProductForm extends StatelessWidget {
               textalign: TextAlign.start,
               hinttext: "وصف المنتج"),
         ]));
+  }
+}
+
+class ProductFormViwe extends StatelessWidget {
+  const ProductFormViwe({
+    super.key,
+    required this.widget,
+  });
+
+  final AddProductForm widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return ProductForm(
+      formkey: widget.formKey,
+      name: (value) {
+        widget.name = value!;
+        //log(name);
+      },
+      dateofproduction: (value) {
+        widget.dateofproduction = value!;
+      },
+      dateofexpire: (value) {
+        widget.dateofexpire = value!;
+      },
+      quantity: (value) {
+        widget.quantity = value!;
+      },
+      price: (value) {
+        widget.price = value!;
+      },
+      description: (value) {
+        widget.description = value!;
+      },
+    );
   }
 }

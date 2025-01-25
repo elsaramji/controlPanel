@@ -1,14 +1,15 @@
 // components/auth/signin/view/view.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:furits_control/components/auth/signin/logic/functions.dart';
 import 'package:furits_control/components/auth/signin/widget/signinform.dart';
 import 'package:furits_control/components/controls/views/controls_view.dart';
 import 'package:furits_control/core/custom/appbars/custom_Appbar.dart';
 
 import '../../../../core/injection/get_it.dart';
-import '../../../../service/firebase/auth.dart';
 import '../../../../service/blocks/cubits/sginin_cubit/siginin_cubit_cubit.dart';
+import '../../../../service/firebase/auth.dart';
 import '../widget/admin_rules.dart';
 
 class SigninAsAdmin extends StatelessWidget {
@@ -32,6 +33,13 @@ class SigninAsAdmin extends StatelessWidget {
             LogicFunctionSignin.statelistener(state, context, auth);
           },
           builder: (context, state) {
+            if (state is SigninLoading) {
+              return const Center(
+                child: SpinKitChasingDots(
+                  color: Colors.green,
+                ),
+              );
+            }
             if (auth.isLoggedIn()) {
               return const ControlsView();
             } else {

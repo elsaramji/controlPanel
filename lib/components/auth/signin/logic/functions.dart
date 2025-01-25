@@ -9,6 +9,7 @@ import '../../../controls/views/controls_view.dart';
 class LogicFunctionSignin {
   static void statelistener(
       SigninState state, BuildContext context, FirebaseAuthService auth) {
+        
     if (state is SigninSuccess) {
       if (auth.isLoggedIn()) {
         Navigator.restorablePopAndPushNamed(context, ControlsView.routeName);

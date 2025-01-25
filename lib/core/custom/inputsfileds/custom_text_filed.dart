@@ -18,10 +18,13 @@ class CustomTextformField extends StatefulWidget {
   final TextAlign textalign;
   bool obscuretext;
   final List<Icon>? suffixicons;
+
+  String? initialValue;
   CustomTextformField({
     super.key,
     required this.keybordetepy,
     required this.hinttext,
+    this.initialValue,
     this.textalign = TextAlign.start,
     this.maxlines = 1,
     this.onsaved,
@@ -37,6 +40,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: widget.initialValue,
       maxLines: widget.maxlines,
       textAlign: widget.textalign,
       onSaved: widget.onsaved,
