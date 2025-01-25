@@ -1,7 +1,6 @@
 // core/custom/inputsfileds/flexible_text_filed.dart
 import 'package:flutter/material.dart';
 import 'package:furits_control/core/custom/inputsfileds/custom_text_filed.dart';
-import 'package:furits_control/generated/l10n.dart';
 
 class FlexibleTextformField extends StatelessWidget {
   final TextInputType keybordetepy;
