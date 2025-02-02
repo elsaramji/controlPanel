@@ -58,7 +58,12 @@
 تمثل هذه اللوحة أداة متكاملة لإدارة المتجر الإلكتروني بكفاءة، مما يساعد على تحسين الأداء وزيادة رضا العملاء.
 
 ---
-
+https://github.com/user-attachments/assets/edd383fb-92ff-4ea1-ba65-1e32039261d2
+____________________
+--------------------
+English Description 
+--------------------
+____________________
 # E-commerce Dashboard 🛒
 
 ## Introduction
@@ -103,6 +108,10 @@
 - Statistics on the best-selling products.
 - Customer feedback analysis to measure satisfaction.
 - Performance tracking of delivery services.
+
+
+
+
 
 ---
 
