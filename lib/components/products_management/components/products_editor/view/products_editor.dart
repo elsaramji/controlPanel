@@ -10,6 +10,8 @@ import 'package:furits_control/service/blocks/cubits/update_products/update_prod
 import 'package:furits_control/service/firebase/firebaseDataService.dart';
 
 import '../../../../../core/custom/appbars/custom_Appbar.dart';
+import '../../../../../core/custom/inputsfileds/flexible_text_filed.dart'
+    show FlexibleTextformField;
 import '../../../../../core/custom/show_errors/custom_errors_massage.dart';
 import '../../../../../core/models/product.dart';
 import '../../../../../core/styles/color_style.dart';
@@ -25,6 +27,7 @@ class ProductsEditor extends StatefulWidget {
   Product product;
   StorageSupbase hup = getIt<StorageSupbase>();
   FirebaseDataService collaction = getIt<FirebaseDataService>();
+
   ProductsEditor({
     super.key,
     required this.product,
@@ -83,6 +86,7 @@ class _ProductsEditorState extends State<ProductsEditor> {
                                 const SizedOverflowBox(
                                   size: Size.fromHeight(36),
                                 ),
+                              
                                 //form sheet edit image
                                 EiditImage(
                                     hup: widget.hup,

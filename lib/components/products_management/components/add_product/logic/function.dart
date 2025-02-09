@@ -4,15 +4,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../../../../core/custom/show_errors/custom_errors_massage.dart';
 import '../../../../../core/models/product.dart';
 import '../../../../../service/blocks/cubits/add_product/add_product_cubit.dart';
 import '../../../../../service/firebase/firebaseDataService.dart';
 import '../../../../../service/supbace/storage_supbase.dart';
 import '../view/add_product_form.dart';
-
-
 
 // this class is responsible for picking an image from the gallery
 class PickImageFunction {
@@ -22,17 +19,22 @@ class PickImageFunction {
     return picker;
   }
 }
+
 // this class is responsible for saving the product data to the database
 class UploadProduct {
-  static void addProductService(BuildContext context,
-      {required FirebaseDataService collaction,
-      required StorageSupbase hup,
-      required String name,
-      required String dateofproduction,
-      required String dateofexpire,
-      required String quantity,
-      required String price,
-      required String description}) {
+  static void addProductService(
+    BuildContext context, {
+    required FirebaseDataService collaction,
+    required StorageSupbase hup,
+    required String name,
+    required String dateofproduction,
+    required String dateofexpire,
+    required String quantity,
+    required String price,
+    required String description,
+    required String calories,
+    required bool isOrganic,
+  }) {
     BlocProvider.of<AddProductCubit>(context).addproduct(
         collaction: collaction,
         product: Product(
@@ -43,9 +45,12 @@ class UploadProduct {
             quantity: quantity,
             price: price,
             description: description,
-            imageurl: hup.imageurl));
+            imageurl: hup.imageurl,
+            isOrganic: isOrganic,
+            calories: calories));
   }
 }
+
 // this class is responsible for generating a product code
 class GenerateProductCode {
   static String generateProductCode() {
@@ -62,6 +67,7 @@ class GenerateProductCode {
     return "$datePart-$uniquePart";
   }
 }
+
 // this class is responsible for saving the product data to the database
 class SaveProductForm {
   static void saveProductData(BuildContext context, AddProductForm widget) {
@@ -76,6 +82,8 @@ class SaveProductForm {
           dateofexpire: widget.dateofexpire,
           quantity: widget.quantity,
           price: widget.price,
+          isOrganic: widget.isOrganic,
+          calories: widget.calories,
           description: widget.description);
     } else {
       ErrorsMassage.errorsBar(context, "من فضلك ادخل جميع البيانات");

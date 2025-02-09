@@ -2,7 +2,7 @@
 // components/products_management/views/products_view.dart
 
 import 'package:flutter/material.dart';
-import 'package:furits_control/components/products_management/logic/function.dart';
+import 'package:furits_control/components/products_management/logic/product_stream_biluder.dart';
 import 'package:furits_control/core/custom/buttons/custom_circle.dart';
 import 'package:furits_control/core/injection/get_it.dart';
 import 'package:furits_control/service/firebase/firebaseDataService.dart';
