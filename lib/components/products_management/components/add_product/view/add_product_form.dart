@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:furits_control/components/products_management/components/add_product/logic/function.dart';
 import 'package:furits_control/components/products_management/views/products_view.dart';
-import 'package:furits_control/core/custom/inputsfileds/flexible_text_filed.dart';
 import 'package:furits_control/core/custom/show_errors/custom_errors_massage.dart';
 import 'package:furits_control/core/injection/get_it.dart';
 import 'package:furits_control/service/blocks/cubits/add_product/add_product_cubit.dart';
@@ -89,7 +88,7 @@ class _AddProductFormState extends State<AddProductForm> {
                                 const SizedOverflowBox(
                                   size: Size.fromHeight(36),
                                 ),
-                                
+
                                 //form sheet image
                                 UploadImage(
                                   hup: widget.hup,
